@@ -45,7 +45,7 @@ async function run() {
     const allowArguments = core.getInput("allow_arguments") === "true";
 
     // If no mention is needed then we default to true in order to trigger next steps.
-    let hasMention = mention ? body.includes(mention) : true;
+    let hasMention = mention ? body.toLowerCase().includes(mention.toLowerCase()) : true;
     let hasTrigger = body.includes(trigger);
 
     if (allowArguments) {
