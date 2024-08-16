@@ -1,4 +1,4 @@
-name: 'Pull Request Comment Action'
+name: 'Pull Request Comment Trigger Action'
 description: 'Look for a text in a pull-request description or comment, so that later steps can know whether or not to run.'
 inputs:
   reaction:
