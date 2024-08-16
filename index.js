@@ -45,8 +45,8 @@ async function run() {
     const allowArguments = core.getInput("allow_arguments") === "true";
 
     // If no mention is needed then we default to true in order to trigger next steps.
-    let hasMention = mention ? body.contains(mention) : true;
-    let hasTrigger = body.conatins(trigger);
+    let hasMention = mention ? body.includes(mention) : true;
+    let hasTrigger = body.includes(trigger);
 
     if (allowArguments) {
         let regexRawTrigger = trigger.replace(/\s\*{2}/g, " [^\\s]+");
