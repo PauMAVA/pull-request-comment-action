@@ -6,7 +6,7 @@ const { context, getOctokit } = require("@actions/github");
 async function run() {
     // Basic argument handling
     const trigger = core.getInput("trigger", { required: true });
-    const mention = core.getInput("mention", { required: false });
+    let mention = core.getInput("mention", { required: false });
 
     if (mention && !mention.startsWith("@")) {
         mention = "@" + mention;
