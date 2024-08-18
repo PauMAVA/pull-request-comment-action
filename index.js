@@ -8,7 +8,7 @@ async function run() {
     const trigger = core.getInput("trigger", { required: true });
     let mention = core.getInput("mention", { required: false });
 
-    if (mention && !mention.startsWith("@")) {
+    if (mention !== '' && !mention.startsWith("@")) {
         mention = "@" + mention;
     }
 
@@ -45,7 +45,7 @@ async function run() {
     const allowArguments = core.getInput("allow_arguments") === "true";
 
     // If no mention is needed then we default to true in order to trigger next steps.
-    let hasMention = mention ? body.toLowerCase().includes(mention.toLowerCase()) : true;
+    let hasMention = mention !== '' ? body.toLowerCase().includes(mention.toLowerCase()) : true;
     let hasTrigger = body.includes(trigger);
 
     if (allowArguments) {
