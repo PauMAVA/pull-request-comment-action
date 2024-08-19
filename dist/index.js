@@ -31123,7 +31123,7 @@ async function run() {
     const client = getOctokit(GITHUB_TOKEN);
 
     const prNumber = context.payload.issue.number;
-    const {data} = await client.rest.pulls.get({repo, owner, prNumber});
+    const {data} = await client.rest.pulls.get({repo, owner, issue_number: prNumber});
     core.info(`Fetch pull request ${prNumber} for ${owner}/${repo}.`);
     
     const open = core.getInput('open');
