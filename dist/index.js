@@ -31127,6 +31127,7 @@ async function run() {
     core.info(`Fetch pull request ${prNumber} for ${owner}/${repo}.`);
     
     const open = core.getInput('open');
+    core.info(`${data}`);
     core.info(`PR state is ${data[0].state}`);
     if (open === 'true' && data[0].state !== 'open') {
         core.info('PR was closed... Skip.');
