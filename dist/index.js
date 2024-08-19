@@ -31120,6 +31120,7 @@ async function run() {
 
     // Check if the trigger text is in the body
     const { owner, repo } = context.repo;
+    const client = getOctokit(GITHUB_TOKEN);
 
     const prNumber = context.payload.issue.number;
     const {data} = await client.rest.pulls.get({repo, owner, prNumber});
@@ -31183,7 +31184,6 @@ async function run() {
         return;
     }
 
-    const client = getOctokit(GITHUB_TOKEN);
     if (context.eventName === "issue_comment") {
         await client.rest.reactions.createForIssueComment({
             owner,
