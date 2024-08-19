@@ -42,9 +42,9 @@ async function run() {
     const { owner, repo } = context.repo;
     const client = getOctokit(GITHUB_TOKEN);
 
-    const prNumber = context.payload.issue.number;
-    const {data} = await client.rest.pulls.get({repo, owner, issueNumber: prNumber});
-    core.info(`Fetch pull request ${prNumber} for ${owner}/${repo}.`);
+    const issueNumber = context.payload.issue.number;
+    const {data} = await client.rest.pulls.get({repo, owner, issueNumber});
+    core.info(`Fetch pull request ${issueNumber} for ${owner}/${repo}.`);
     
     const open = core.getInput('open');
     core.info(`Data is ${JSON.stringify(data)}`);
