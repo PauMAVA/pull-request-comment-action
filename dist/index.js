@@ -31127,9 +31127,9 @@ async function run() {
     core.info(`Fetch pull request ${prNumber} for ${owner}/${repo}.`);
     
     const open = core.getInput('open');
-    core.info(`${data}`);
-    core.info(`PR state is ${data[0].state}`);
-    if (open === 'true' && data[0].state !== 'open') {
+    core.info(`Data is ${JSON.stringify(data)}`);
+    core.info(`PR state is ${data.state}`);
+    if (open === 'true' && data.state !== 'open') {
         core.info('PR was closed... Skip.');
         core.setOutput('triggered', 'false');
         return;
