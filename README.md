@@ -59,7 +59,8 @@ And if you specify a reaction, you have to provide the `GITHUB_TOKEN` variable.
 | Input | Required? | Description |
 | ----- | --------- | ----------- |
 | trigger | Yes | The string to look for in pull-request descriptions and comments. For example "#build/android". |
-| trigger | No | The user that must be mentioned in the PR. |
+| mention | No | The user that must be mentioned in the PR. |
+| open | No (default 'true') | If only open pull requests should be taken into account |
 | prefix_only | No (default 'false') | If 'true', the trigger must match the start of the comment. |
 | reaction | No (default '') | If set, the specified emoji "reaction" is put on the comment to indicate that the trigger was detected. For example, "rocket". |
 | allow_arguments | No (default 'false') | If 'true', script looks for `**` markers that are considered as comment arguments. |

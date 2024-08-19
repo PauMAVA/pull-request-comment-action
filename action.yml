@@ -11,6 +11,10 @@ inputs:
   trigger:
     description: 'The string to look for in pull-request descriptions and comments. For example "#build/android"'
     required: true
+  open:
+    description: 'If only open PR should be taken into account'
+    required: false
+    default: "true"
   prefix_only:
     description: If 'true', the trigger must match the start of the comment.
     required: false

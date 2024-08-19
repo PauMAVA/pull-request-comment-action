@@ -41,6 +41,17 @@ async function run() {
     // Check if the trigger text is in the body
     const { owner, repo } = context.repo;
 
+    const prNumber = context.payload.issue.number;
+    const {data} = await client.rest.pulls.get({repo, owner, prNumber});
+    core.info(`Fetch pull request ${prNumber} for ${owner}/${repo}.`);
+    
+    const open = core.getInput('open');
+    if (open === 'true' && data.state !== 'open') {
+        core.info('PR was closed... Skip.');
+        core.setOutput('triggered', 'false');
+        return;
+    }
+
     const prefixOnly = core.getInput("prefix_only") === "true";
     const allowArguments = core.getInput("allow_arguments") === "true";
 
